@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 13:08:33 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/09/14 15:05:26 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/06/17 17:27:57 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/06/18 13:14:42 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "libft.h"
 
-int main(int argc, *argv[]) 
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (argc != 3)
+	t_list	*tmp;
+	t_list	*next;
+
+	tmp = lst;
+	while (tmp)
 	{
-		ft_printf
+		next = tmp->next;
+		if (tmp && f)
+			f(tmp->content);
+		tmp = next;
 	}
-    if (sigaction(SIGUSR1, &sa, NULL) == -1) {
-        perror("Error while configuring signal handler.\n");
-        exit(1);
-    }
-    kill(getpid(), SIGUSR1);
-    while (!client_ready) {
-        printf("Waiting for server...\n");
-        sleep(1);
-    }
-    ft_printf("Client ready...\n");
-    return 0;
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "../include/printf.h"
 
 void	ft_bzero(void *s, size_t n)
 {

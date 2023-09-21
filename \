@@ -1,0 +1,67 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/20 16:24:04 by hmontoya          #+#    #+#              #
+#    Updated: 2023/09/21 16:08:52 by hmontoya         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Nombre del ejecutable
+TARGET = minitalk
+
+# Rutas a directorios
+SRC_DIR = src
+INC_DIR = includes
+LIBFT_DIR = libft
+PRINTF_DIR = ft_printf
+
+# Lista de archivos fuente
+SRC_FILES = server.c client.c
+
+# Lista de archivos de encabezado
+INC_FILES = mintalk.h ft_printf.h libft.h
+
+# Rutas completas a archivos fuente y de encabezado
+SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
+INCS = $(addprefix $(INC_DIR)/, $(INC_FILES))
+OBJS = $(addprefix $(SRC_DIR)/. $(SRCS:.c=.o))
+
+# Compilador y opciones de compilación
+CC = gcc
+CFLAGS = -Wall -Wextra -I$(INC_DIR) -I$(LIBFT_DIR) -I$(PRINTF_DIR)
+
+# Bibliotecas
+LIBFT = $(LIBFT_DIR)/libft.a
+PRINTF = $(PRINTF_DIR)/libftprintf.a
+
+# Regla principal
+all: $(TARGET)
+
+$(TARGET): $(SRCS) $(LIBFT) $(PRINTF)
+	$(CC) $(CFLAGS) -o $@ $(SRCS) -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
+
+# Reglas para construir las bibliotecas
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+
+$(PRINTF):
+	$(MAKE) -C $(PRINTF_DIR)
+
+# Limpieza
+clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
+	@rm -vf $(OBJS)
+
+fclean: clean
+	@rm -vf $(TARGET)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
+
+re: fclean all
+
+.PHONY: all clean fclean re
