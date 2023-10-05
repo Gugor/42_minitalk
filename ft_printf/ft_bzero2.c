@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_bzero2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/14 15:03:41 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/09/20 16:30:50 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/09 17:02:31 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/07/09 16:46:08 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include <stdio.h>
-# include <unistd.h>
-# include <signal.h>
-# include <stdlib.h>
-# include <ft_printf.h>
+#include "../include/printf.h"
 
-int ft_printf(const char *format, ...);
-#endif
+void	ft_bzero2(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*b;
+
+	i = 0;
+	b = (unsigned char *)s;
+	while (i < n)
+	{
+		b[i] = 0;
+		i++;
+	}
+	s = (void *) b;
+}

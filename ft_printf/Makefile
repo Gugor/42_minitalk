@@ -15,7 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -I ./
 DEPS = ft_printf.h Makefile 
 OBJ = ft_printf.o ft_set_c.o ft_set_s.o ft_set_d.o ft_set_i.o ft_set_u.o ft_set_u.o ft_set_x.o ft_set_xx.o \
-	  ft_set_p.o ft_set_per.o ft_strchr.o ft_strlen.o ft_itoa.o ft_strdup.o ft_calloc.o ft_bzero.o
+	  ft_set_p.o ft_set_per.o ft_strchr.o ft_strlen.o ft_itoa.o ft_strdup.o ft_calloc.o ft_bzero2.o
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 18:13:11 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/07/16 14:19:31 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/09/26 17:07:27 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ size_t	ft_strlen(const char *str);
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *s1);
 void	*ft_calloc(size_t count, size_t size);
-char	*ft_bzero(void *s, size_t n);
+char	*ft_bzero2(void *s, size_t n);
 #endif

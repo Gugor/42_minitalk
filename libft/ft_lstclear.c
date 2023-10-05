@@ -6,11 +6,11 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 15:58:58 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/17 17:25:20 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:50:26 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -23,6 +23,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		next = node->next;
 		ft_lstdelone(node, del);
 		node = next;
-	}	
+	}
 	*lst = NULL;
 }

@@ -6,12 +6,13 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:08:33 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/09/23 17:23:33 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:56:00 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minitalk.h"
 #include "../include/ft_printf.h"
+#include "../include/libft.h"
 
 void	error_handler(int argc, char *argv[])
 {
@@ -25,7 +26,7 @@ void	error_handler(int argc, char *argv[])
 		exit(1);
 	}
 	ft_printf("Cheking pid...\n");
-	pid = atoi(argv[1]);
+	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
 	{
 		ft_printf(":: Error: PID argument is not a valid number.\n");

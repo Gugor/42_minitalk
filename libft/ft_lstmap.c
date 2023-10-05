@@ -6,11 +6,11 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 22:02:21 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/17 22:04:18 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/09/26 16:50:44 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -32,6 +32,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ft_lstadd_back(&newlist, new);
 		new = NULL;
 		lst = lst->next;
-	}	
+	}
 	return (newlist);
 }
